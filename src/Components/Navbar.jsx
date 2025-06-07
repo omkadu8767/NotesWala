@@ -17,7 +17,7 @@ const Navbar = () => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await fetch(`${host}/api/auth/getuser`, {
+                    const response = await fetch(`/api/auth/getuser`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

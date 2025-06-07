@@ -13,6 +13,7 @@ dist-ssr
 *.local
 .env
 .vscode
+.gitignore
 
 # Editor directories and files
 .vscode/*
