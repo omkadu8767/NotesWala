@@ -1,4 +1,3 @@
-import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import NoteIcon from "@mui/icons-material/Note";
 
@@ -51,8 +50,8 @@ const features = [
 
 const About = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-10">
-      <div className="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8">
+    <div className="min-h-screen w-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-purple-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 py-10">
+      <div className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 mx-2">
         <div className="flex flex-col items-center mb-6">
           <div className="bg-blue-600 text-white rounded-full w-20 h-20 flex items-center justify-center mb-3 shadow-lg">
             <NoteIcon style={{ fontSize: 40 }} />
@@ -73,7 +72,7 @@ const About = () => {
             <li key={idx} className="flex items-start gap-3">
               <CheckCircleIcon className="text-green-500 mt-1" fontSize="medium" />
               <div>
-                <span className="font-semibold">{feature.title}:</span>{" "}
+                <span className="font-semibold dark:text-white">{feature.title}:</span>{" "}
                 <span className="text-gray-700 dark:text-gray-300">{feature.desc}</span>
               </div>
             </li>
@@ -92,9 +91,9 @@ const About = () => {
         <div className="flex justify-center mt-4">
           <span className="text-blue-700 dark:text-blue-300 font-semibold">
             <a href="https://www.linkedin.com/in/om-kadu-53305425a/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-            Made with ❤️ by{" OK"}
-          </a>
-         </span>
+              Made with ❤️ by OK
+            </a>
+          </span>
         </div>
       </div>
     </div>

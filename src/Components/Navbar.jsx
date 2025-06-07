@@ -94,7 +94,7 @@ const Navbar = () => {
                         <Link type="button" to="/signup" role='button' className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">SignUp</Link>
                     </form> :
                         (
-                            <div className="flex items-center gap-2 relative">
+                            <div className="flex flex-col md:flex-row items-center gap-2 relative w-full md:w-auto">
                                 {/* Avatar */}
                                 <button
                                     type="button"
@@ -107,30 +107,28 @@ const Navbar = () => {
                                         className="w-8 h-8 rounded-full border-2 border-blue-700"
                                     />
                                 </button>
-                                {/* Dropdown */}
-                                {showDropdown && user && (
-                                    <div className="absolute right-16 top-10 z-50 w-64 bg-white rounded-lg shadow-lg p-4 dark:bg-gray-800">
-                                        <div className="flex flex-col items-center">
-                                            <img
-                                                src={`https://ui-avatars.com/api/?name=${user && user.name ? encodeURIComponent(user.name.slice(0, 2).toUpperCase()) : "US"}`}
-                                                alt="avatar"
-                                                className="w-12 h-12 rounded-full mb-2"
-                                            />
-                                            <h3 className="text-lg font-semibold dark:text-white">{user.name}</h3>
-                                            <p className="text-sm text-gray-500 dark:text-gray-300">{user.email}</p>
-                                            <p className="text-xs text-gray-400 mt-2">Registered: {user.date ? new Date(user.date).toLocaleDateString() : ''}</p>
-                                        </div>
-                                    </div>
-                                )}
-                                {/* Logout Button */}
+                                {/* Logout Button (always visible, next to avatar) */}
                                 <button
                                     type="button"
                                     onClick={handleClick}
                                     role='button'
-                                    className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                 >
                                     Logout
                                 </button>
+                                {/* Dropdown */}
+                                {showDropdown && user && (
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-12 z-50 w-64 bg-white rounded-lg shadow-lg p-4 dark:bg-gray-800 flex flex-col items-center">
+                                        <img
+                                            src={`https://ui-avatars.com/api/?name=${user && user.name ? encodeURIComponent(user.name.slice(0, 2).toUpperCase()) : "US"}`}
+                                            alt="avatar"
+                                            className="w-12 h-12 rounded-full mb-2"
+                                        />
+                                        <h3 className="text-lg font-semibold dark:text-white">{user.name}</h3>
+                                        <p className="text-sm text-gray-500 dark:text-gray-300">{user.email}</p>
+                                        <p className="text-xs text-gray-400 mt-2">Registered: {user.date ? new Date(user.date).toLocaleDateString() : ''}</p>
+                                    </div>
+                                )}
                             </div>
                         )}
                 </div>
