@@ -46,23 +46,30 @@ const Notes = () => {
         <>
             <AddNote />
             <div>
-                <button onClick={openModal} ref={ref} data-modal-target="default-modal" data-modal-toggle="default-modal" className="hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                {/* Hidden button to trigger modal */}
+                <button
+                    onClick={openModal}
+                    ref={ref}
+                    data-modal-target="default-modal"
+                    data-modal-toggle="default-modal"
+                    className="hidden"
+                    type="button"
+                >
                     Toggle modal
                 </button>
-
 
                 {isModalOpen && (
                     <div
                         id="default-modal"
                         tabIndex="-1"
                         aria-hidden="true"
-                        className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50"
+                        className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50 dark:bg-opacity-80"
                     >
                         <div className="relative p-4 w-full max-w-2xl max-h-full">
                             {/* Modal content */}
-                            <div className="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                            <div className="relative bg-white rounded-lg shadow-sm dark:bg-gray-800">
                                 {/* Modal header */}
-                                <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                                <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200 dark:border-gray-600">
                                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                                         Edit Note
                                     </h3>
@@ -94,19 +101,44 @@ const Notes = () => {
                                     <form className="max-w-sm mx-auto">
                                         <div className="mb-5">
                                             <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                                            <input type="text" id="etitle" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Title of Note" name='etitle' value={note.etitle} onChange={onChange} required />
+                                            <input
+                                                type="text"
+                                                id="etitle"
+                                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                placeholder="Title of Note"
+                                                name='etitle'
+                                                value={note.etitle}
+                                                onChange={onChange}
+                                                required
+                                            />
                                         </div>
                                         <div className="mb-5">
                                             <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                            <input type="text" id="edescription" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Description of Note' name='edescription' value={note.edescription} onChange={onChange} minLength={5} required />
+                                            <input
+                                                type="text"
+                                                id="edescription"
+                                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                placeholder='Description of Note'
+                                                name='edescription'
+                                                value={note.edescription}
+                                                onChange={onChange}
+                                                minLength={5}
+                                                required
+                                            />
                                         </div>
                                         <div className="mb-5">
                                             <label htmlFor="tag" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tag</label>
-                                            <input type="text" id="etag" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Tag of Note' name='etag' value={note.etag} onChange={onChange} minLength={5} required />
-                                        </div>
-                                        <div className="flex items-start mb-5">
-                                            <div className="flex items-center h-5">
-                                            </div>
+                                            <input
+                                                type="text"
+                                                id="etag"
+                                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                placeholder='Tag of Note'
+                                                name='etag'
+                                                value={note.etag}
+                                                onChange={onChange}
+                                                minLength={5}
+                                                required
+                                            />
                                         </div>
                                     </form>
                                 </div>
@@ -135,15 +167,17 @@ const Notes = () => {
                 )}
             </div>
 
-            <h1 className='text-2xl p-3 text-center font-bold'>Your Notes</h1>
+            <h1 className='text-2xl p-3 text-center font-bold text-gray-800 dark:text-white'>Your Notes</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 mx-5">
-                {notes.length === 0 && 'No notes to display'}
-                {notes.map((note) => {
-                    return (
-                        <NoteItem key={note._id} updatenote={updatenote} note={note} />
-                    )
-                })}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-5">
+                {notes.length === 0 && (
+                    <div className="col-span-full text-center text-gray-500 dark:text-gray-300">
+                        No notes to display
+                    </div>
+                )}
+                {notes.map((note) => (
+                    <NoteItem key={note._id} updatenote={updatenote} note={note} />
+                ))}
             </div>
         </>
     )

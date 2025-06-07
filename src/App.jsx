@@ -1,14 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import { ToastContainer } from 'react-toastify';
-import './App.css';
+// import './App.css';
 import About from './Components/About';
 import Alert from './Components/Alert';
 import Home from './Components/Home';
-import Navbar from './Components/Navbar';
-import NotesState from './context/notes/NoteState';
 import Login from "./Components/Login";
+import Navbar from './Components/Navbar';
 import SignUp from "./Components/SignUp";
-import { useState } from "react";
+import NotesState from './context/notes/NoteState';
 
 function App() {
 
