@@ -55,7 +55,7 @@ const Navbar = () => {
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <div className="h-8 w-8 flex items-center justify-center rounded-full bg-white dark:bg-gray-900">
-                            <img src="src/assets/NotesWala.png" className="h-6 w-14" alt="NotesWala Logo" />
+                            <img src="../src/assets/NotesWala.png" className="h-6 w-14" alt="NotesWala Logo" />
                         </div>
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">NotesWala</span>
                     </Link>
